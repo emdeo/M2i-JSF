@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!--
+	Composants JSF (permettent de configurer l'IU)
+	IMPORTANT : préciser le xmlns:h au début de l'appel
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Hello World - Input Form</title>
+</h:head>
+<h:body>
+	<h:form>
+		Prenom <h:inputText value="#{student.prenom}" />
+		<br />
+		<br />
+		Nom <h:inputText value="#{student.nom}" />
+		<br />
+		<br />
+		Pays d'origine
+		<h:selectOneMenu value="#{student.pays}">
+			<f:selectItems value="#{student.optionsPays}" />
+		</h:selectOneMenu>
+		<br />
+		<br />
+		Langage préféré
+		<h:selectOneRadio value="#{student.langage}">
+			<f:selectItems value="#{student.optionsLangage}" />
+		</h:selectOneRadio>
+
+		<!-- <h:selectOneRadio value="#{student.langage}">
+			<f:selectItem itemValue="Python" itemLabel="Python" />
+			<f:selectItem itemValue="Java" itemLabel="Java" />
+			<f:selectItem itemValue="C" itemLabel="C" />
+			<f:selectItem itemValue="Cobol" itemLabel="Cobol" />
+		</h:selectOneRadio> -->
+		
+		<br />
+		<br />
+		Technologies maîtrisées
+		<h:selectManyCheckbox value="#{student.techs}">
+			<f:selectItems value="#{student.optionsTechno}" />
+		</h:selectManyCheckbox>
+
+		<h:commandButton value="Submit" action="myresponse" />
+	</h:form>
+</h:body>
+</html>
