@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+
+<h:head>
+	<title>JSF - Calcul IMC</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></link>
+
+	<h:outputStylesheet library="resources/stylesheets" name="style.css"></h:outputStylesheet>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<style>
+.error {
+	color: red
+}
+</style>
+
+</h:head>
+
+
+<h:body>
+	<div class="container">
+
+		<br />
+
+		<h3>Complétez les champs suivants</h3>
+
+		<br />
+
+		<h:form>
+
+			<div class="form-group row">
+				<label for="txtNom" class="col-sm-1 col-form-label">Nom</label>
+				<div class="col-sm-4">
+
+					<h:inputText id="txtNom" value="#{personneBean.nom}"
+						a:placeholder=" Votre nom" required="true"
+						requiredMessage=" Nom invalide">
+
+						<f:validateLength minimum="1" maximum="30" />
+
+					</h:inputText>
+
+					<h:message for="txtNom" styleClass="error" />
+
+				</div>
+
+			</div>
+
+			<div class="form-group row">
+				<label for="txtPrenom" class="col-sm-1 col-form-label">Prenom</label>
+				<div class="col-sm-4">
+
+					<h:inputText id="txtPrenom" value="#{personneBean.prenom}"
+						a:placeholder=" Votre prénom" required="true"
+						requiredMessage=" Prénom invalide">
+
+						<f:validateLength minimum="1" maximum="30" />
+
+					</h:inputText>
+
+					<h:message for="txtPrenom" styleClass="error" />
+
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="txtTaille" class="col-sm-1 col-form-label">Taille</label>
+				<div class="col-sm-4">
+
+					<h:inputText id="txtTaille" a:placeholder=" Votre taille"
+						value="#{personneBean.taille}"/>
+
+					<h:message for="txtTaille" styleClass="error" />
+
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="txtPoids" class="col-sm-1 col-form-label">Poids</label>
+				<div class="col-sm-4">
+
+					<h:inputText id="txtPoids" value="#{personneBean.poids}"
+						a:placeholder="Votre poids"/>
+
+					<h:message for="txtPoids" styleClass="error" />
+
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="lstGenre" class="col-sm-1 col-form-label">Sexe</label>
+				<div class="col-sm-4">
+
+					<h:selectOneMenu id="lstGenre" value="#{personneBean.sexe}">
+						<f:selectItems value="#{dataBean.EnumValues()}" />
+					</h:selectOneMenu>
+
+				</div>
+			</div>
+
+			<h:commandLink action="resultat" styleClass="btn btn-primary">
+				Calculer
+			</h:commandLink>
+
+		</h:form>
+
+	</div>
+</h:body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
